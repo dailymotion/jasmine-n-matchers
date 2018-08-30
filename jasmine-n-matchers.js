@@ -35,7 +35,7 @@ beforeEach(function () {
             pass: util.equals(count, n, customEqualityTesters)
           };
 
-          var msg = 'Expected spy ' + actual.and.identity() + ' to have been called ' + n + ' time(s), but was ';
+          var msg = 'Expected spy ' + actual.and.identity + ' to have been called ' + n + ' time(s), but was ';
           msg = (count === 0 ? msg + 'never called.' : msg + 'called ' + count + ' times.');
 
           result.message = (result.pass ? msg.replace('to have', 'not to have') : msg);
@@ -79,7 +79,7 @@ beforeEach(function () {
             pass: util.equals(foundCount, n)
           };
 
-          var actualIdentity = actual.and.identity();
+          var actualIdentity = actual.and.identity;
 
           if (result.pass)
             result.message = 'Expected spy ' + actualIdentity + ' not to have been called with ' +
@@ -87,7 +87,7 @@ beforeEach(function () {
           else
             result.message = 'Expected spy ' + actualIdentity + ' to have been found with ' +
               jasmine.pp(expectedArgs) + ' ' + n + ' time(s) but it was found ' + foundCount + ' time(s).\n\n' +
-              'Spy '+ actual.and.identity() + ' call listing:\n' + jasmine.pp(allActualArgs) + '.'
+              'Spy '+ actual.and.identity + ' call listing:\n' + jasmine.pp(allActualArgs) + '.'
 
           return result;
         }
